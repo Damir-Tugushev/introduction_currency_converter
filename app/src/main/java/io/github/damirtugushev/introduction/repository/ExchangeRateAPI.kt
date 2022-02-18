@@ -1,8 +1,9 @@
 package io.github.damirtugushev.introduction.repository
 
-import io.github.damirtugushev.introduction.model.repository.PairConversionResult
-import io.github.damirtugushev.introduction.model.repository.SupportedCodesResult
-import retrofit2.Call
+import com.haroldadmin.cnradapter.NetworkResponse
+import io.github.damirtugushev.introduction.repository.model.ApiError
+import io.github.damirtugushev.introduction.repository.model.LatestDataResult
+import io.github.damirtugushev.introduction.repository.model.SupportedCodesResult
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -12,13 +13,11 @@ interface ExchangeRateAPI {
         const val baseURI = "https://v6.exchangerate-api.com/v6/$API_KEY/"
     }
 
-    @GET("/codes")
-    fun supportedCodes(): Call<SupportedCodesResult>
+    @GET("codes")
+    suspend fun supportedCodes(): ApiResponse<SupportedCodesResult>
 
-    @GET("/pair/{base}/{target}/{amount}")
-    fun pairConversion(
-        @Path("base") base: String,
-        @Path("target") target: String,
-        @Path("amount") amount: Double,
-    ): Call<PairConversionResult>
+    @GET("latest/{code}")
+    suspend fun latestData(@Path("code") code: String): ApiResponse<LatestDataResult>
 }
+
+typealias ApiResponse<T> = NetworkResponse<T, ApiError>

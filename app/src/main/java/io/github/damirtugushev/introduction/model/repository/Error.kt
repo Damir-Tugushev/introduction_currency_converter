@@ -1,7 +1,0 @@
-package io.github.damirtugushev.introduction.model.repository
-
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class Error(@SerialName("error-type") val type: String)

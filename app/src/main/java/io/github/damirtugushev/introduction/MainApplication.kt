@@ -1,4 +1,4 @@
-package io.github.damirtugushev.introduction.presentation
+package io.github.damirtugushev.introduction
 
 import android.app.Application
 import io.github.damirtugushev.introduction.di.appModule

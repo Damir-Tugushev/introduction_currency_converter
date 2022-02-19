@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/converter_fragment">
+
+    <fragment
+        android:id="@+id/converter_fragment"
+        android:name="io.github.damirtugushev.introduction.view.ConverterFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/converter_fragment" >
+
+        <action
+            android:id="@+id/to_supported_codes_list"
+            app:destination="@id/supported_codes_list_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/supported_codes_list_fragment"
+        android:name="io.github.damirtugushev.introduction.view.SupportedCodesListFragment"
+        android:label="@string/supported_codes"
+        tools:layout="@layout/supported_codes_list_fragment">
+        <argument
+            android:name="key"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

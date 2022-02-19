@@ -1,13 +1,14 @@
-package io.github.damirtugushev.introduction.repository
+package io.github.damirtugushev.introduction.repository.net
 
 import com.haroldadmin.cnradapter.NetworkResponse
-import io.github.damirtugushev.introduction.repository.model.ApiError
-import io.github.damirtugushev.introduction.repository.model.LatestDataResult
-import io.github.damirtugushev.introduction.repository.model.SupportedCodesResult
+import io.github.damirtugushev.introduction.repository.net.model.ApiError
+import io.github.damirtugushev.introduction.repository.net.model.LatestDataResult
+import io.github.damirtugushev.introduction.repository.net.model.SupportedCodesResult
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ExchangeRateAPI {
+
     companion object {
         private const val API_KEY = "SECRET"
         const val baseURI = "https://v6.exchangerate-api.com/v6/$API_KEY/"

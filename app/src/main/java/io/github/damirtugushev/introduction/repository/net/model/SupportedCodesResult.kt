@@ -1,4 +1,4 @@
-package io.github.damirtugushev.introduction.repository.model
+package io.github.damirtugushev.introduction.repository.net.model
 
 import io.github.damirtugushev.introduction.model.SupportedCode
 import kotlinx.serialization.SerialName

@@ -5,3 +5,8 @@ plugins {
 
     kotlin("android") version "1.6.10" apply false
 }
+buildscript {
+    dependencies {
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.4.1")
+    }
+}

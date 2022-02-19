@@ -2,7 +2,7 @@ package io.github.damirtugushev.introduction.di
 
 import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import io.github.damirtugushev.introduction.repository.ExchangeRateAPI
+import io.github.damirtugushev.introduction.repository.net.ExchangeRateAPI
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType

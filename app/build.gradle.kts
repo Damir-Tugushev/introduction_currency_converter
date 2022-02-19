@@ -2,10 +2,21 @@ plugins {
     id("com.android.application")
 
     kotlin("android")
+    kotlin("kapt")
     kotlin("plugin.serialization") version "1.6.10"
+
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            storeFile = file("${rootDir.absolutePath}\\release.jks")
+            storePassword = "DamirTugushev"
+            keyAlias = "currencyConverterKey"
+            keyPassword = "DamirTugushev"
+        }
+    }
     compileSdk = 32
 
     defaultConfig {
@@ -16,8 +27,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        vectorDrawables.useSupportLibrary = true
+        signingConfig = signingConfigs.getByName("release")
     }
 
     buildTypes {
@@ -27,6 +37,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            isDebuggable = false
+            isJniDebuggable = false
+            isRenderscriptDebuggable = false
         }
     }
     buildFeatures {
@@ -48,12 +61,18 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("com.google.android.material:material:1.5.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.4.1")
 
     // Kotlin extensions
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+
+    // Room
+    implementation("androidx.room:room-runtime:2.4.1")
+    implementation("androidx.room:room-ktx:2.4.1")
+    // Room annotations with Kotlin annotation processing tool
+    kapt("androidx.room:room-compiler:2.4.1")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
